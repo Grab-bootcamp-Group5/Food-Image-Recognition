@@ -1,0 +1,64 @@
+{
+  "ingredients": [
+    {
+      "ingredient_name": "Ground Beef",
+      "total unit": "150 g",
+      "category": "Fresh Meat"
+    },
+    {
+      "ingredient_name": "Hamburger Bun",
+      "total unit": "100 g",
+      "category": "Grains & Staples"
+    },
+    {
+      "ingredient_name": "Lettuce",
+      "total unit": "20 g",
+      "category": "Vegetables"
+    },
+    {
+      "ingredient_name": "Tomato",
+      "total unit": "30 g",
+      "category": "Vegetables"
+    },
+    {
+      "ingredient_name": "Onion",
+      "total unit": "20 g",
+      "category": "Vegetables"
+    },
+    {
+      "ingredient_name": "Pickles",
+      "total unit": "20 g",
+      "category": "Vegetables"
+    },
+    {
+      "ingredient_name": "Ketchup",
+      "total unit": "15 ml",
+      "category": "Seasonings"
+    },
+    {
+      "ingredient_name": "Mustard",
+      "total unit": "10 ml",
+      "category": "Seasonings"
+    },
+    {
+      "ingredient_name": "Salt",
+      "total unit": "2 g",
+      "category": "Seasonings"
+    },
+    {
+      "ingredient_name": "Black Pepper",
+      "total unit": "1 g",
+      "category": "Seasonings"
+    },
+    {
+      "ingredient_name": "Cooking Oil",
+      "total unit": "10 ml",
+      "category": "Seasonings"
+    },
+    {
+      "ingredient_name": "Cheese slice (Optional)",
+      "total unit": "20 g",
+      "category": "Ice Cream & Cheese"
+    }
+  ]
+}

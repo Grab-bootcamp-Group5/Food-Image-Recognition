@@ -1,0 +1,11 @@
+2025-04-29 10:13:30,908 - INFO - AFC is enabled with max remote calls: 10.
+2025-04-29 10:13:33,832 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent "HTTP/1.1 200 OK"
+2025-04-29 10:13:33,833 - INFO - AFC remote call 1 is done.
+2025-04-29 10:13:33,834 - INFO - Extracted ingredients for 'hamburger'
+2025-04-29 10:13:33,835 - INFO - Saved analysis to /root/snap/Food-Image-Recognition/models/results/hamburger.json
+2025-04-29 10:16:20,304 - INFO - Starting analysis for 'Spaghetti Bolognese'
+2025-04-29 10:16:22,707 - INFO - AFC is enabled with max remote calls: 10.
+2025-04-29 10:16:26,003 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent "HTTP/1.1 200 OK"
+2025-04-29 10:16:26,005 - INFO - AFC remote call 1 is done.
+2025-04-29 10:16:26,005 - INFO - Extracted ingredients for 'Spaghetti Bolognese'
+2025-04-29 10:16:26,005 - INFO - Analysis completed for 'Spaghetti Bolognese'

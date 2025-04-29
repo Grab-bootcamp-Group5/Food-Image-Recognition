@@ -40,7 +40,7 @@ def analyze_food(dish_name: str, retries: int = 3) -> dict:
     List the most important ingredients to cook \"{dish_name}\".
     Return a JSON array named \"ingredients\", where each element has:
     - ingredient_name (string)
-    - total unit (return how much \"g\" for solids or \"ml\" for liquids)
+    - total unit (must include how much \"g\" for solids or \"ml\" for liquids and separateted by a white space):
     - category: classify the ingredients into these list of given categories:
     CATEGORIES = [
     "Prepared Vegetables", "Vegetables", "Fresh Fruits", "Fresh Meat",

@@ -20,18 +20,18 @@ producer = KafkaProducer(
 async def on_message(_, __, msg):
 
     try:
-        # message = {
-        #     'correlationId': "123",
-        #     'fileName': "OIP.jpg",
-        #     'modelType': "image"
-        # }
-        # print(f"Received message: {message}")
-
         message = {
             'correlationId': "123",
-            'requestMessage': "Tôi muốn làm 1 món pizza với thịt bò, phô mai và nấm",
-            'modelType': "text"
+            'fileName': "OIP.jpg",
+            'modelType': "image"
         }
+        # print(f"Received message: {message}")
+
+        # message = {
+        #     'correlationId': "123",
+        #     'requestMessage': "Tôi muốn làm 1 món pizza với thịt bò, phô mai và nấm",
+        #     'modelType': "text"
+        # }
         print(f"Received message: {message}")
         # print("Sendingg.......")
         await asyncio.wait_for(

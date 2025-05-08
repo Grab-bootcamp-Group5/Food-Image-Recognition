@@ -1,4 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+import string
+import re
 
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
     "vinai/vinai-translate-vi2en-v2",
@@ -17,7 +19,27 @@ def translate_vi2en(vi_text: str) -> str:
         num_beams=5,
         early_stopping=True
     )
-    return tokenizer_vi2en.decode(outputs[0], skip_special_tokens=True)
+    
+    text = tokenizer_vi2en.decode(outputs[0], skip_special_tokens=True)
+    
+    def clean_text(text):
+        cleaned_text = re.sub(r"[^A-Za-z(),!?\'\`]", " ", text)
+        cleaned_text = re.sub(r"\s+", " ", cleaned_text).strip()
+        return cleaned_text
+
+    def remove_punctuation(text):
+        return text.translate(str.maketrans('', '', string.punctuation))
+
+    def text_lowercase(text):
+        return text.lower()
+
+    def preprocessing(text):
+        text = clean_text(text)
+        text = remove_punctuation(text)
+        text = text_lowercase(text)
+        return text
+    
+    return preprocessing(text)
 
 from models.Food_Extract.food_model import FoodModel
 model = FoodModel()

@@ -50,27 +50,50 @@ async def consume_messages():
                     download_file(fileName, tmp_path)
                     dish = food_image_models.predict(tmp_path)
                     logger.info(f"Predicted dish: {dish}")
-                    ingredients = extract_food_ingredients(dish)
-                    # logger.info(f"Extracted ingredients: {ingredients}")
+                    requestDish = [{
+                        "dish_name": dish,
+                        "ingredients_must_have": [],
+                        "ingredients_optional": []
+                    }]
+                    ingredients = extract_food_ingredients(requestDish)
+                    if not ingredients or not isinstance(ingredients, dict):
+                        logger.warning(f"Invalid ingredients extracted: {ingredients}, skipping.")
+                        continue
                     payload = {
                         "dish": dish,
                         "correlationId": correlationId,
                         "ingredients": ingredients,
                         "modelType": data['modelType'],
                     }
+                    # print(f"Payload: {payload}")
                     await send_response(payload)
                 elif data['modelType'] == 'text':
                     if 'requestMessage' not in data:
                         logger.warning("Missing requestMessage in message, skipping.")
                         continue
                     dish = data['requestMessage']
-                    ingredients = food_text_models.predict(dish)
+                    #dish = Tôi muốn làm 1 món pizza với thịt bò, phô mai và nấm
+                    ingredients_must_have = food_text_models.predict(dish)
+                    # ingredients_must_have = ['pizza', 'beef cheese', 'mushrooms']
+                    requestDish = [{
+                        "dish_name": dish,
+                        "ingredients_must_have": ingredients_must_have,
+                        "ingredients_optional": []
+                    }]
+
+                    ingredients = extract_food_ingredients(requestDish)
+                    # print(f"Extracted ingredients: {ingredients}")
+                    if not ingredients or not isinstance(ingredients, dict):
+                        logger.warning(f"Invalid ingredients extracted: {ingredients}, skipping.")
+                        continue
+                    # in ingredients I just want the number of dish equal to 
                     payload = {
                         "dish": dish,
                         "correlationId": correlationId,
                         "ingredients": ingredients,
                         "modelType": data['modelType'],
                     }
+                    # print(f"Payload: {payload}")
                     await send_response(payload)
                 
             except Exception as e:
